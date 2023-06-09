@@ -1,6 +1,12 @@
 import Modulo
 
+
 class Validador(Modulo):
-    def ejecutar(self):
+
+    @staticmethod
+    def create_instance():
+        return Validador()
+
+    def ejecutar(self, context):
         # TODO Implementar este metodo
-        pass
+        print("Validador executed")

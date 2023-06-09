@@ -1,9 +1,14 @@
 import Modulo
 
+
 class Extractor(Modulo):
     def __init__(self, url_origen):
         self.url_origen = url_origen
 
-    def ejecutar(self):
-        # TODO Implementar este metodo para obtener info del CSV!
-        pass
+    @staticmethod
+    def create_instance(url_origen):
+        return Extractor(url_origen)
+
+    def execute(self, context):
+        # TODO Implementar este metodo
+        print("Extractor executed")

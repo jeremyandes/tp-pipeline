@@ -1,6 +1,12 @@
 import Modulo
 
+
 class Selector(Modulo):
-    def ejecutar(self):
+
+    @staticmethod
+    def create_instance():
+        return Selector()
+
+    def ejecutar(self, context):
         # TODO Implementar este metodo
-        pass
+        print("Selector executed")

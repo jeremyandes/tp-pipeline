@@ -1,6 +1,12 @@
 import Modulo
 
+
 class Calculador(Modulo):
-    def ejecutar(self):
+
+    @staticmethod
+    def create_instance():
+        return Calculador()
+
+    def ejecutar(self, context):
         # TODO Implementar este metodo
-        pass
+        print("Calculador executed")
