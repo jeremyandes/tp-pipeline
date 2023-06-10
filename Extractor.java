@@ -1,2 +1,0 @@
-Chau
-Hola de nuevo

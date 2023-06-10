@@ -5,5 +5,5 @@ class Generador(Modulo):
         self.url_destino = url_destino
 
     def ejecutar(self):
-        # TODO Implementar este metodo para generar un CSV
+         # TODO Implementar este metodo
         pass
