@@ -1,5 +1,6 @@
 import csv
 
+<<<<<<< HEAD
 # import Modulo
 # Cambie el nombre del archivo por initial_dataset
 
@@ -22,3 +23,17 @@ class Extractor:
 #data =  extractor.get_data()
 #for row in data:
 #	print(row)
+=======
+
+class Extractor(Modulo):
+    def __init__(self, url_origen):
+        self.url_origen = url_origen
+
+    @staticmethod
+    def create_instance(url_origen):
+        return Extractor(url_origen)
+
+    def execute(self, context):
+        # TODO Implementar este metodo
+        print("Extractor executed")
+>>>>>>> bebb15aeefaf09f74b3ff91851a7e6122bda8fcd
