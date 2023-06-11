@@ -1,7 +1,7 @@
-import ComponentPipeline
+import ComponentePipeline
 
 
-class Pipeline(ComponentPipeline):
+class Pipeline(ComponentePipeline):
     def __init__(self):
         self.components = []
 
