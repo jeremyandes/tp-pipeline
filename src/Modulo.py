@@ -1,8 +1,8 @@
 from abc import abstractmethod
-import ComponentPipeline
+import ComponentePipeline
 
 
-class Modulo(ComponentPipeline):
+class Modulo(ComponentePipeline):
     @abstractmethod
     def ejecutar(self, context):
         pass
