@@ -1,4 +1,4 @@
-# Juan Andres Cherviere version 1
+# Juan Andres Cherviere version 2
 import datetime
 
 class Validador:
@@ -16,15 +16,20 @@ class Validador:
     def validar_tipo(self, columna, valor):
         # Si el tipo es válido, retorna True. De lo contrario, retorna False.
         if columna == "id":
-            return isinstance(valor, int)
+            return isinstance(valor, int) and valor > 0
         elif columna == "fecha_inicial":
-            return isinstance(valor, datetime.datetime)
+            return self.validar_fecha(valor)
         elif columna == "estado_encuesta":
-            return isinstance(valor, str)
-        elif columna == "paraje":
-            return isinstance(valor, str)
+            return valor in ['', 'Completa', 'Imposibilitada', 'De Prueba', 'En proceso']
         elif columna == "cantidad_personas":
-            return isinstance(valor, int)
+            return isinstance(valor, int) and valor > 0
         else:
             # Si la columna no está definida en las condiciones anteriores, se considera válida 
             return True
+    
+    def validar_fecha(self, fecha):
+        try:
+            datetime.datetime.strptime(fecha, '%d/%m/%Y')
+            return True
+        except ValueError:
+            return False
