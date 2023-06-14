@@ -1,7 +1,7 @@
-import Modulo
+import Context
 
 
-class Selector(Modulo):
+class Selector(Context):
 
     @staticmethod
     def create_instance():
@@ -10,3 +10,15 @@ class Selector(Modulo):
     def ejecutar(self, context):
         # TODO Implementar este metodo
         print("Selector executed")
+
+    #False = alguna o varias filas con campos vacios
+    #True = todas las filas son validas
+
+    def filas_validas(Context):
+        for dato in Context:
+            if not dato:
+                return False
+        return True
+
+
+

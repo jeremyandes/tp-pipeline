@@ -1,4 +1,4 @@
-# Juan Andres Cherviere version 1
+# Juan Andres Cherviere version 1 - Configurar patron de conception decorateur
 import datetime
 
 class Transformador:

@@ -17,8 +17,8 @@ class Extractor:
         return self.data
 
 # Prueba
-#extractor = Extractor("C:/initial_dataset.csv")
-#extractor.ejecutar()
-#data =  extractor.get_data()
-#for row in data:
-#	print(row)
+extractor = Extractor("C:/initial_dataset.csv")
+extractor.ejecutar()
+data =  extractor.get_data()
+for a in data:
+    print(a)
