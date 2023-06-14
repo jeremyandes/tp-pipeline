@@ -14,8 +14,8 @@ class Selector(Context):
     #False = alguna o varias filas con campos vacios
     #True = todas las filas son validas
 
-    def filas_validas(Context):
-        for dato in Context:
+    def fila_valida(self, fila):
+        for dato in fila:
             if not dato:
                 return False
         return True
