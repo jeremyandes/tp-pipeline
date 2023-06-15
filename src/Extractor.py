@@ -27,6 +27,7 @@ class Extractor:
 # extractor = Extractor("C:/initial_dataset.csv")
 # lista_data = extractor.ejecutar()
 # for objeto in lista_data:
- #    print(objeto.id, objeto.fecha_inicial, objeto.estado_encuesta, objeto.paraje, objeto.cantidad_personas)
+#     print(objeto.id, objeto.fecha_inicial, objeto.estado_encuesta, objeto.paraje, objeto.cantidad_personas)
+
 
 

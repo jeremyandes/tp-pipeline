@@ -12,12 +12,16 @@ class Selector:
                 return True
         return False
         
+    def filtro (self):
+        for fila in self.lista_data:
+            if not fila.estado_encuesta == "Completa":
+                return False
+        return True
 
-
-# lista_data = [Data(10, "2021-08-19", "", "breayoj", 6),Data(4,"2021-08-19", "Completa", "breayoj", 6)]
+# lista_data = [Data(10, "2021-08-19", "Completa", "breayoj", 6),Data(4,"2021-08-19", "", "breayoj", 6)]
 # selector = Selector(lista_data)
-# if selector.campos_vacios():
-#     print("La fila tiene Objeto Data con campos vacios")
-#else:
-#     print("La fila NO tiene Objeto Data con campos vacios")
+# if selector.filtro():
+#      print("La fila tiene el estado de la encuesta Completa")
+# else:
+# print("La fila NO tiene el estado de la encuentas completa")
 
