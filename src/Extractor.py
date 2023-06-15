@@ -1,6 +1,6 @@
 import csv
+from Data import Data
 
-# import Modulo
 # Cambie el nombre del archivo por initial_dataset
 
 class Extractor:
@@ -9,16 +9,24 @@ class Extractor:
         self.data= []
      
     def ejecutar(self):
-        with open (self.initial_dataset, "r") as file:
-            csv_reader = csv.reader(file)
-            self.data = list(csv_reader)
-    
-    def get_data (self):
+        with open (self.initial_dataset, "r") as archivo_csv:
+            fila = csv.reader(archivo_csv)
+            next (fila)
+            for columna in fila:
+                id = columna[0]
+                fecha_inicial = columna[1]
+                estado_encuesta = columna[2]
+                paraje = columna[3]
+                cantidad_personas = columna[4]
+                objeto_data = Data(id, fecha_inicial, estado_encuesta, paraje, cantidad_personas)
+                self.data.append(objeto_data)
         return self.data
-
+    
+    
 # Prueba
-extractor = Extractor("C:/initial_dataset.csv")
-extractor.ejecutar()
-data =  extractor.get_data()
-for a in data:
-    print(a)
+# extractor = Extractor("C:/initial_dataset.csv")
+# lista_data = extractor.ejecutar()
+# for objeto in lista_data:
+ #    print(objeto.id, objeto.fecha_inicial, objeto.estado_encuesta, objeto.paraje, objeto.cantidad_personas)
+
+
