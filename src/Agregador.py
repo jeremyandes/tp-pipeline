@@ -4,39 +4,31 @@ from Context import Context
 from Data import Data
 
 class Agregador:
-    #utilizo como parametro la columna por la cual quiero ralizar la agregacion por ejemplo paraje
-    def __init__(self, columnas_agregacion: List[str]):
-        self.columnas_agregacion = columnas_agregacion
+    def __init__(self, lista_data):
+        self.lista_data = lista_data
 
-    def contar_encuestas_por_paraje(self, context: Context) -> Context:
-        resultados = {}
-        for data in context.get_data():
-            paraje = data.get_paraje()
-            if paraje in resultados:
-                resultados[paraje] += 1
+    def cantidad_encuestas_por_paraje(self):
+        encuestas_por_paraje = {} # diccionario, para guardar el recuento
+
+        for fila in self.lista_data:
+            paraje = fila.paraje
+            if paraje in encuestas_por_paraje:
+                encuestas_por_paraje[paraje] = encuestas_por_paraje[paraje] + 1
             else:
-                resultados[paraje] = 1
+                encuestas_por_paraje[paraje] = 1
 
-        nuevo_contexto = Context()
-        for paraje, cantidad_encuestas in resultados.items():
-            nueva_data = Data(paraje=paraje, cantidad_encuestas=cantidad_encuestas)
-            nuevo_contexto.add_data(nueva_data)
+        return encuestas_por_paraje
 
-        return nuevo_contexto
+    def cantidad_personas_por_paraje(self):
+        personas_por_paraje = {}
 
-    def sumar_personas_por_paraje(self, context: Context) -> Context:
-        resultados = {}
-        for data in context.get_data():
-            paraje = data.get_paraje()
-            cantidad_personas = data.get_cantidad_personas()
-            if paraje in resultados:
-                resultados[paraje] += cantidad_personas
+        for fila in self.lista_data:
+            paraje = fila.paraje
+            cantidad_personas = fila.cantidad_personas
+            if paraje in personas_por_paraje:
+                personas_por_paraje[paraje] = personas_por_paraje[paraje] + cantidad_personas
             else:
-                resultados[paraje] = cantidad_personas
+                personas_por_paraje[paraje] = cantidad_personas
 
-        nuevo_contexto = Context()
-        for paraje, cantidad_personas in resultados.items():
-            nueva_data = Data(paraje=paraje, cantidad_personas=cantidad_personas)
-            nuevo_contexto.add_data(nueva_data)
+        return personas_por_paraje
 
-        return nuevo_contexto
