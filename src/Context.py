@@ -77,6 +77,5 @@ class Context:
             Data(34, "2021-08-23", "Completa", "breayoj", 6),
             Data(35, "2021-08-13", "Completa", "colonia real sur", 4)
         ]
-ejemplo=Context()
-ejemplo.create_example_list()
-print(Data)
+
+

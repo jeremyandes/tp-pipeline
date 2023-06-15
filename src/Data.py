@@ -57,7 +57,3 @@ class Data:
         print("paraje: ", self.paraje)
         print("cantidad_personas: ", self.cantidad_personas)
         print("--------------------")
-
-
-data=Data()
-data.print_data()
