@@ -70,9 +70,18 @@ print("Resumen contar:")
 for data in resumen_contar.get_data():
     data.print_data()
 
+ En data habria que modificar
+
+ def print_data_agregada_cant_encuestas(self):  #POR EJEMPLO
+    print("--------------------")
+    print("Paraje:", self.paraje)
+    print("Cantidad de encuestas:", self.cantidad_personas)
+    print("--------------------")   
+
 # Realizar la suma de cantidad de personas por paraje
 resumen_sumar = agregador.sumar()
 print("Resumen sumar:")
 for data in resumen_sumar.get_data():
     data.print_data()
+
 '''
