@@ -15,17 +15,9 @@ class Generador():
         return Generador(url_destino)
 
     def ejecutar(self):
-        # TODO Implementar este metodo
-        print("Generador executed")
-
-# Prueba de clase Generador
-
-
-# generador = Generador(Context(), "test.csv")
-# generador.ejecutar()
-# df = pd.DataFrame(
-#     generador.context.get_data_as_dataframe(),
-#     columns=["id", "fecha_inicial", "estado_encuesta",
-#              "paraje", "cantidad_personas"]
-# )
-# df.to_csv(generador.url_destino, index=False)
+        df = pd.DataFrame(
+            self.context.get_data_as_dataframe(),
+            columns=["id", "fecha_inicial", "estado_encuesta",
+                     "paraje", "cantidad_personas"]
+        )
+        df.to_csv(self.url_destino, index=False)
