@@ -19,6 +19,10 @@ class Data:
     def get_as_dataframe(self):
         return [self.id, self.fecha_inicial, self.estado_encuesta, self.paraje, self.cantidad_personas]
 
+    def get_columns_for_dataframe(self):
+        return ["id", "fecha_inicial", "estado_encuesta",
+                "paraje", "cantidad_personas"]
+
     def get_id(self) -> int:
         return self.id
 

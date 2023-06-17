@@ -1,9 +1,10 @@
+from ContextoGenerico import ContextoGenerico
 from Data import Data
 
 # Otro comentario agregado
 
 
-class Context:
+class Context(ContextoGenerico):
     data = []
 
     def __init__(self):
@@ -12,12 +13,6 @@ class Context:
 
     def get_data(self):
         return self.data
-    
-    def get_data_as_dataframe(self):
-        data_frame = []
-        for data in self.data:
-            data_frame.append(data.get_as_dataframe())
-        return data_frame
 
     def set_data(self, data):
         self.data = data
@@ -77,5 +72,3 @@ class Context:
             Data(34, "2021-08-23", "Completa", "breayoj", 6),
             Data(35, "2021-08-13", "Completa", "colonia real sur", 4)
         ]
-
-

@@ -17,7 +17,6 @@ class Generador():
     def ejecutar(self):
         df = pd.DataFrame(
             self.context.get_data_as_dataframe(),
-            columns=["id", "fecha_inicial", "estado_encuesta",
-                     "paraje", "cantidad_personas"]
+            columns=self.context.get_columns_for_dataframe()
         )
         df.to_csv(self.url_destino, index=False)
