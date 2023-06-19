@@ -1,30 +1,28 @@
-from ContextEncuentasPorParaje import ContextEncuestasPorParaje
-from DataEncuentasPorParaje import DataEncuentasPorParaje
+from Context import Context
 from Extractor import Extractor
-import pandas as pd
-
 from Generador import Generador
+from Pipeline import Pipeline
 
-print(pd.__version__)
+####### URL a la carpeta CSV ######
+csvPath = '../csv/'
 
+# Creando un componente extractor
+extractor = Extractor(
+    csvPath + "initial_dataset.csv")
 
-# # Ejemplo de la clase generador able to crear archivos con distintas columnas
-# extractor = Extractor(
-#     "C:\\Users\\ariel\\OneDrive\\Escritorio\\CAECE\\tp-pipeline\\csv\\initial_dataset.csv")
-# context = extractor.ejecutar()
+# Creando un componente generador
+generadorCamposVacios = Generador(
+    csvPath + "campos_vacios_dataset.csv")
 
-# generador1 = Generador(context,
-#                        "C:\\Users\\ariel\\OneDrive\\Escritorio\\CAECE\\tp-pipeline\\csv\\final_dataset.csv")
+# Creando un componente pipeline
+pipeline = Pipeline()
 
-# generador1.ejecutar()
+# Agregando el extractor y el generador al pipeline
+pipeline.add_component(extractor)
+pipeline.add_component(generadorCamposVacios)
 
-# contextEncuestasPorParaje = ContextEncuestasPorParaje()
-# dataEncuestasPorParaje1 = DataEncuentasPorParaje("paraje1", 4)
-# dataEncuestasPorParaje2 = DataEncuentasPorParaje("paraje2", 6)
-# contextEncuestasPorParaje.add_data(dataEncuestasPorParaje1)
-# contextEncuestasPorParaje.add_data(dataEncuestasPorParaje2)
+# Creando contexto inicial
+context = Context()
 
-# generador2 = Generador(
-#     contextEncuestasPorParaje, "C:\\Users\\ariel\\OneDrive\\Escritorio\\CAECE\\tp-pipeline\\csv\\encuestas_parajes.csv")
-
-# generador2.ejecutar()
+# Ejecutar pipeline con contexto inicial
+pipeline.ejecutar(context)

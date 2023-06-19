@@ -1,16 +1,17 @@
 import csv
+from ComponentePipeline import ComponentePipeline
 from Context import Context
+from ContextoGenerico import ContextoGenerico
 from Data import Data
 
-# Cambie el nombre del archivo por initial_dataset
 
-
-class Extractor:
-    def __init__(self, initial_dataset):
+class Extractor(ComponentePipeline):
+    def __init__(self, initial_dataset: str):
         self.initial_dataset = initial_dataset
         self.data = []
 
-    def ejecutar(self):
+    def ejecutar(self, context: ContextoGenerico) -> ContextoGenerico:
+        print("Ejecutando extractor")
         with open(self.initial_dataset, "r") as archivo_csv:
             fila = csv.reader(archivo_csv)
             next(fila)
@@ -24,9 +25,10 @@ class Extractor:
                                    estado_encuesta, paraje, cantidad_personas)
                 self.data.append(objeto_data)
 
-        context = Context()
-        context.set_data(self.data)
-        return context
+        new_context = Context()
+        new_context.set_data(self.data)
+        print("Fin ejecucion extractor")
+        return new_context
 
 
 # # Prueba

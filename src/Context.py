@@ -1,15 +1,9 @@
 from ContextoGenerico import ContextoGenerico
 from Data import Data
 
-# Otro comentario agregado
-
 
 class Context(ContextoGenerico):
     data = []
-
-    def __init__(self):
-        # self.create_example_list()
-        pass
 
     def get_data(self):
         return self.data
