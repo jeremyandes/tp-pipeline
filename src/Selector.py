@@ -1,27 +1,33 @@
+from Context import Context
+from ContextoGenerico import ContextoGenerico
 from Data import Data
 from typing import List
 
+
 class Selector:
-
-    def __init__(self, lista_data):
-        self.lista_data = lista_data
-
-    def campos_vacios (self):
-        for fila in self.lista_data:
+    def filtrar_campos_vacios(self, lista_data):
+        resultado = []
+        for fila in lista_data:
             if '' in (fila.id, fila.fecha_inicial, fila.estado_encuesta, fila.paraje, fila.cantidad_personas):
-                return True
-        return False
-        
-    def filtro (self):
-        for fila in self.lista_data:
-            if not fila.estado_encuesta == "Completa":
-                return False
-        return True
+                resultado.append(fila)
+        return resultado
 
-# lista_data = [Data(10, "2021-08-19", "Completa", "breayoj", 6),Data(4,"2021-08-19", "", "breayoj", 6)]
-# selector = Selector(lista_data)
-# if selector.filtro():
-#      print("La fila tiene el estado de la encuesta Completa")
-# else:
-# print("La fila NO tiene el estado de la encuentas completa")
+    def filtrar_encuestas_completas(self, lista_data):
+        resultado = []
+        for fila in lista_data:
+            if fila.estado_encuesta == "Completa" and '' not in (fila.id, fila.fecha_inicial, fila.estado_encuesta, fila.paraje, fila.cantidad_personas):
+                resultado.append(fila)
+        return resultado
 
+    def ejecutar(self, context: ContextoGenerico):
+
+        encuestas_completas = self.filtrar_encuestas_completas(
+            context.get_data())
+        contexto_encuestas_completas = Context()
+        contexto_encuestas_completas.set_data(encuestas_completas)
+
+        campos_vacios = self.filtrar_campos_vacios(context.get_data())
+        contexto_campos_vacios = Context()
+        contexto_campos_vacios.set_data(campos_vacios)
+
+        return (contexto_encuestas_completas, contexto_campos_vacios)
