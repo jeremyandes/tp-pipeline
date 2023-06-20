@@ -20,7 +20,7 @@ class Selector:
         return resultado
 
     def ejecutar(self, context: ContextoGenerico):
-
+        print("Ejecutando selector")
         encuestas_completas = self.filtrar_encuestas_completas(
             context.get_data())
         contexto_encuestas_completas = Context()
@@ -30,4 +30,5 @@ class Selector:
         contexto_campos_vacios = Context()
         contexto_campos_vacios.set_data(campos_vacios)
 
+        print("Fin ejecucion selector")
         return (contexto_encuestas_completas, contexto_campos_vacios)

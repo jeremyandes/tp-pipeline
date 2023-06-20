@@ -1,8 +1,10 @@
 from Context import Context
+from Data import Data
 from Extractor import Extractor
 from Generador import Generador
 from Pipeline import Pipeline
 from Selector import Selector
+from Validador import Validador
 
 ####### URL a la carpeta CSV ######
 csvPath = '../csv/'
@@ -11,15 +13,16 @@ csvPath = '../csv/'
 extractor = Extractor(
     csvPath + "initial_dataset.csv")
 
-# Creando un componente generador
+# Creando un componente generador campo vacio
 generadorCamposVacios = Generador(
     csvPath + "campos_vacios_dataset.csv")
 
+# creando un componente generador para campos completos
 generadorCamposCompletos = Generador(
     csvPath + "campos_completos_dataset.csv")
 
-generadorExtraParaEjemplo = Generador(
-    csvPath + "ejemplo_dataset.csv")
+# Creando un componente validador
+validador = Validador(Data.get_columns_for_dataframe())
 
 # Creando un componente selector
 selector = Selector()
@@ -29,10 +32,9 @@ pipeline = Pipeline()
 
 # Agregando el extractor y el generador al pipeline
 pipeline.add_component(extractor)
+pipeline.add_component(validador)
 pipeline.add_component(selector)
 pipeline.add_component((generadorCamposCompletos, generadorCamposVacios))
-# Este componente sigue con el context que devuelve el componente generadorCamposCompletos
-pipeline.add_component(generadorExtraParaEjemplo)
 
 # Creando contexto inicial
 context = Context()
