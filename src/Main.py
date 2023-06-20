@@ -16,11 +16,11 @@ extractor = Extractor(
 
 # Creando un componente generador campo vacio
 generadorCamposVacios = Generador(
-    csvPath + "campos_vacios_dataset.csv")
+    csvPath + "campos_vacios.csv")
 
 # creando un componente generador para campos completos
-generadorCamposCompletos = Generador(
-    csvPath + "campos_completos_dataset.csv")
+generadorCamposNoVacios = Generador(
+    csvPath + "campos_no_vacios.csv")
 
 # Creando un componente validador
 validador = Validador(Data.get_columns_for_dataframe())
@@ -43,7 +43,7 @@ pipeline.add_component(validador)
 pipeline.add_component(formateador_fecha)
 pipeline.add_component(formateador_mayusculas)
 pipeline.add_component(selector)
-pipeline.add_component((generadorCamposCompletos, generadorCamposVacios))
+pipeline.add_component((generadorCamposNoVacios, generadorCamposVacios))
 
 # Creando contexto inicial
 context = Context()
