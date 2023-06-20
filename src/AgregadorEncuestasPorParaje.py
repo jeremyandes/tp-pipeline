@@ -15,9 +15,9 @@ class AgregadorEncuestasPorParaje(ComponentePipeline):
         return resultado
 
     def ejecutar(self, context: ContextoGenerico):
-        print("Ejecutando filtro estado")
+        print("Ejecutando agregador encuestas por paraje")
         new_lista_data = self.agruparEncuestasPorPeraje(context.get_data())
         new_context = ContextEncuestasPorParaje()
         new_context.set_data(new_lista_data)
-        print("Fin ejecucion filtro estado")
+        print("Fin ejecucion agregador encuestas por paraje")
         return new_context
