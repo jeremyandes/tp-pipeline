@@ -1,6 +1,7 @@
 from Context import Context
 from Data import Data
 from Extractor import Extractor
+from FormateadorFecha import FormateadorFecha
 from Generador import Generador
 from Pipeline import Pipeline
 from Selector import Selector
@@ -24,6 +25,12 @@ generadorCamposCompletos = Generador(
 # Creando un componente validador
 validador = Validador(Data.get_columns_for_dataframe())
 
+# Creando un componente formateador fecha
+formateador_fecha = FormateadorFecha("fecha_inicial")
+
+# Creando un componente formateador mayusculas paraje
+formateador_mayusculas = FormateadorFecha("paraje")
+
 # Creando un componente selector
 selector = Selector()
 
@@ -33,6 +40,8 @@ pipeline = Pipeline()
 # Agregando el extractor y el generador al pipeline
 pipeline.add_component(extractor)
 pipeline.add_component(validador)
+pipeline.add_component(formateador_fecha)
+pipeline.add_component(formateador_mayusculas)
 pipeline.add_component(selector)
 pipeline.add_component((generadorCamposCompletos, generadorCamposVacios))
 
