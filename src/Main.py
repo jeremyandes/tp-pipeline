@@ -1,4 +1,5 @@
 from AgregadorEncuestasPorParaje import AgregadorEncuestasPorParaje
+from AgregadorPersonasPorParaje import AgregadorPersonasPorParaje
 from Context import Context
 from Data import Data
 from Extractor import Extractor
@@ -48,10 +49,7 @@ pipeline_encuestas_por_paraje.add_component(agregador_encuestas_por_paraje)
 pipeline_encuestas_por_paraje.add_component(generadorEncuestasPorParaje)
 
 # Creando un pipeline para agregador suma personas por paraje ()
-# TODO: Crear un AgregadorPersonasPorParaje.py
-# TODO: Crear DataPersonasPorParaje.py
-# TODO: Crear ContextoPersonasPorParaje.py
-agregador_personas_por_paraje = AgregadorEncuestasPorParaje()
+agregador_personas_por_paraje = AgregadorPersonasPorParaje()
 generadorPersonasPorParaje = Generador(
     csvPath + "personas_por_paraje.csv")
 

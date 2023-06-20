@@ -1,10 +1,10 @@
 from ContextoGenerico import ContextoGenerico
-from DataEncuentasPorParaje import DataEncuentasPorParaje
+from DataPersonasPorParaje import DataPersonasPorParaje
 
 # Este contexto puede ser devuelto por el agregador
 
 
-class ContextEncuestasPorParaje(ContextoGenerico):
+class ContextPersonasPorParaje(ContextoGenerico):
     data = []
 
     def __init__(self):
@@ -17,13 +17,13 @@ class ContextEncuestasPorParaje(ContextoGenerico):
     def set_data(self, data):
         self.data = data
 
-    def get_data_by_id(self, id: DataEncuentasPorParaje) -> DataEncuentasPorParaje | None:
+    def get_data_by_id(self, id) -> DataPersonasPorParaje | None:
         for data in self.data:
             if data.get_id() == id:
                 return data
         return None
 
-    def add_data(self, data: DataEncuentasPorParaje):
+    def add_data(self, data: DataPersonasPorParaje):
         self.data.append(data)
 
     def remove_data_by_id(self, id) -> bool:
