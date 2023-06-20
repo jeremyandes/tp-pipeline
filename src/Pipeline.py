@@ -11,7 +11,7 @@ class Pipeline(ComponentePipeline):
     def add_component(self, component):
         self.components.append(component)
 
-    def ejecutar(self, context: ContextoGenerico) -> ContextoGenerico:
+    def ejecutar(self, context: ContextoGenerico):
         # TODO: Tirar excepcion si:
         # Es una tupla de 3 o mas
         # Es tupla vacia
@@ -27,11 +27,12 @@ class Pipeline(ComponentePipeline):
                 result = componente_principal.ejecutar(contexto_principal)
                 _ = componente_alternativo.ejecutar(contexto_alternativo)
 
-            if not isinstance(result, tuple):
-                contexto_principal = result
-            else:
-                contexto_principal, contexto_alternativo = result
+            if (result is not None):
+                if not isinstance(result, tuple):
+                    contexto_principal = result
+                else:
+                    contexto_principal, contexto_alternativo = result
 
         print("Fin pipeline")
 
-        return contexto_principal
+        return None

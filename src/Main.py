@@ -1,3 +1,4 @@
+from AgregadorEncuestasPorParaje import AgregadorEncuestasPorParaje
 from Context import Context
 from Data import Data
 from Extractor import Extractor
@@ -19,10 +20,6 @@ extractor = Extractor(
 generadorCamposVacios = Generador(
     csvPath + "campos_vacios.csv")
 
-# creando un componente generador para campos completos
-generadorCompletas = Generador(
-    csvPath + "encuestas_completas.csv")
-
 # Creando un componente validador
 validador = Validador(Data.get_columns_for_dataframe())
 
@@ -41,6 +38,15 @@ filtro_estado_completas = FiltroEstado("Completa")
 # Creando un componente pipeline
 pipeline = Pipeline()
 
+# Creando un pipeline para agregador encuestas por paraje
+agregador_encuestas_por_paraje = AgregadorEncuestasPorParaje()
+generadorEncuestasPorParaje = Generador(
+    csvPath + "encuestas_por_paraje.csv")
+
+pipeline_encuestas_por_paraje = Pipeline()
+pipeline_encuestas_por_paraje.add_component(agregador_encuestas_por_paraje)
+pipeline_encuestas_por_paraje.add_component(generadorEncuestasPorParaje)
+
 # Agregando el extractor y el generador al pipeline
 pipeline.add_component(extractor)
 pipeline.add_component(validador)
@@ -49,7 +55,7 @@ pipeline.add_component(formateador_mayusculas)
 # Selector devuelve una tupla, el siguiente componente en el pipeline deberia tener una tupla de componentes a ejecutar
 pipeline.add_component(selector)
 pipeline.add_component((filtro_estado_completas, generadorCamposVacios))
-pipeline.add_component(generadorCompletas)
+pipeline.add_component(pipeline_encuestas_por_paraje)
 
 # Correr programa principal
 # Creando contexto inicial
