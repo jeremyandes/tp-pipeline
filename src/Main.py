@@ -69,9 +69,9 @@ pipeline.add_component((filtro_estado_completas, generadorCamposVacios))
 pipeline.add_component(pipeline_encuestas_por_paraje)
 pipeline.add_component(pipeline_personas_por_paraje)
 
-# Correr programa principal
 # Creando contexto inicial
 context = Context()
 
+# Correr programa principal
 # Ejecutar pipeline con contexto inicial
 pipeline.ejecutar(context)
