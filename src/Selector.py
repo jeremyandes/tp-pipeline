@@ -16,13 +16,6 @@ class Selector:
 
         return (resultados_campos_vacios, resultados_campos_no_vacios)
 
-    # def filtrar_encuestas_completas(self, lista_data):
-    #     resultado = []
-    #     for fila in lista_data:
-    #         if fila.estado_encuesta == "Completa" and '' not in (fila.id, fila.fecha_inicial, fila.estado_encuesta, fila.paraje, fila.cantidad_personas):
-    #             resultado.append(fila)
-    #     return resultado
-
     def ejecutar(self, context: ContextoGenerico):
         print("Ejecutando selector")
 
