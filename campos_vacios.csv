@@ -1,0 +1,198 @@
+id,fecha_inicial,estado_encuesta,paraje,cantidad_personas
+24,2021-08-24,Completa,,5
+25,2021-08-23,,breayoj,7
+28,2021-08-24,,breayoj,3
+29,2021-08-24,Completa,,8
+74,2021-08-10,,colonia real sur,3
+75,2021-08-30,,vacasnioj norte,7
+99,2021-08-23,Imposibilitada,,0
+128,2021-09-01,,novillo pozo,0
+137,2021-08-24,Completa,,1
+139,2021-09-01,,tacon esquina,5
+151,2021-08-31,Completa,,2
+163,2021-09-03,Completa,,6
+196,2021-08-30,,vacasnioj,2
+212,2021-08-25,Completa,,1
+228,2021-08-19,,colonia real norte,1
+234,2021-08-18,,colonia real norte,0
+244,2021-08-19,Completa,,4
+262,2021-08-18,,santo domingo,5
+274,2021-08-13,Completa,,2
+280,2021-08-12,Completa,,8
+292,2021-08-23,,bracho laguna,3
+315,2021-08-24,,bracho laguna,4
+316,2021-08-18,,puente negro,0
+331,2021-08-17,,puente negro,4
+339,2021-08-12,Completa,,1
+350,2021-08-24,Completa,,3
+351,2021-09-01,Imposibilitada,,0
+355,2021-08-30,,mancapa,9
+357,2021-08-30,Completa,,1
+361,2021-08-27,,el cruce,0
+383,2021-09-01,Completa,,2
+393,2021-08-10,,puente negro,4
+401,2021-08-23,Completa,,5
+419,2021-08-19,Imposibilitada,,0
+425,2021-08-10,Completa,,1
+437,2021-08-20,,santo domingo,11
+445,2021-12-01,Completa,,3
+447,2021-09-13,,punta isla,0
+456,2021-11-09,Completa,,7
+502,2021-09-09,,cruz pozo,3
+507,2021-12-15,De Prueba,,1
+508,2021-12-15,Completa,,1
+509,2021-12-15,,punta pozo,2
+510,2021-12-15,,punta pozo,5
+512,2021-12-15,,punta pozo,6
+515,2021-12-04,,punta pozo,9
+521,2021-12-04,,punta pozo,1
+528,2021-11-30,Completa,,9
+537,2021-11-25,,percas,9
+564,2021-10-14,,salveayoj,2
+565,2021-10-14,Completa,,1
+581,2021-11-27,,punta pozo,2
+587,2021-11-24,Completa,,8
+606,2021-10-01,Completa,,4
+608,2021-10-12,,salvia paso,0
+612,2021-09-30,,la costa,2
+617,2021-09-30,,la costa,0
+620,2021-09-30,,la costa,1
+626,2021-09-22,,la costa,1
+629,2021-09-13,Imposibilitada,,0
+646,2021-09-29,,paaj muyoj,2
+658,2021-09-24,,caspi cuchuna,4
+666,2021-09-24,,caspi cuchuna,2
+680,2021-10-06,Completa,,5
+683,2021-10-06,,tala pozo,8
+684,2021-10-06,Completa,,1
+690,2021-09-29,Completa,,8
+691,2021-09-29,Completa,,3
+707,2021-12-01,,libanesa chica,0
+723,2021-11-30,Imposibilitada,,0
+736,2021-09-15,,san roque,3
+739,2021-09-16,,san roque,3
+747,2021-09-08,,tusca pozo,5
+748,2021-09-14,Completa,,5
+759,2021-09-07,,tronco blanco,0
+764,2021-09-06,Completa,,9
+771,2021-12-09,,la martona,0
+773,2021-12-09,Completa,,3
+779,2021-12-07,Completa,,3
+792,2021-12-01,,san antonio oeste,6
+801,2021-12-01,Completa,,3
+803,2021-12-01,,san antonio oeste,5
+813,2021-11-29,Completa,,7
+826,2021-11-25,Imposibilitada,,0
+831,2021-11-30,Completa,,2
+838,2021-11-30,,colonia libanesa,1
+849,2021-11-25,Completa,,1
+859,2021-11-24,,colonia libanesa,6
+874,2021-09-27,,san josÃ© / saladillo,2
+878,2021-09-25,,totora,4
+884,2021-09-16,,tio alto,1
+890,2021-09-16,Completa,,7
+892,2021-09-16,,tio alto,6
+893,2021-09-16,,tio alto,1
+909,2021-11-24,Completa,,2
+912,2021-11-24,,caÃ±itas puerta,3
+929,2021-11-11,,el molino,2
+944,2021-10-25,Completa,,1
+948,2021-10-21,,icaÃ±o oeste,2
+972,2021-10-07,Completa,,5
+1009,2021-10-18,,las caÃ±as,5
+1020,2021-10-18,,las caÃ±as,6
+1029,2021-10-06,Completa,,2
+1039,2021-09-23,,juventud,1
+1045,2021-09-23,Completa,,3
+1049,2021-09-23,,juventud,9
+1051,2021-09-22,,juventud,2
+1061,2021-09-22,Completa,,1
+1070,2021-11-24,,colonia libanesa,2
+1075,2021-11-19,Completa,,3
+1093,2021-10-26,,colonia alcira / el 20,1
+1097,2021-10-25,Completa,,2
+1100,2021-10-26,Completa,,1
+1108,2021-09-10,,toropan,5
+1117,2021-09-10,,tio alto,8
+1123,2021-09-14,,punta pozo,4
+1131,2021-09-16,,vacasnioj sur,1
+1138,2021-09-14,Completa,,9
+1140,2021-09-13,Completa,,1
+1150,2021-09-08,,navicha,5
+1162,2021-12-07,,acequia vieja,6
+1182,2021-11-09,Completa,,4
+1183,2021-11-09,,bracho lujan,3
+1188,2021-10-28,,el bracho,0
+1214,2021-09-30,,la costa,2
+1217,2021-09-16,Completa,,8
+1233,2021-09-08,,navicha,4
+1245,2021-10-18,,las caÃ±as,4
+1248,2021-10-18,,las caÃ±as,1
+1252,2021-12-01,,libanesa chica,3
+1260,2021-10-20,Completa,,1
+1263,2021-10-19,,colonia alcira / el 20,2
+1286,2021-10-12,,colonia alcira / el 20,4
+1310,2021-09-30,,colonia alcira / el 20,4
+1323,2021-09-29,,colonia alcira / el 20,0
+1326,2021-09-29,,colonia alcira / el 20,3
+1328,2021-09-23,Completa,,6
+1330,2021-09-28,,colonia alcira / el 20,6
+1333,2021-09-28,,colonia alcira / el 20,4
+1359,2021-09-17,,vacasnioj sur,0
+1407,2021-09-14,,navicha,5
+1408,2021-09-14,Completa,,4
+1412,2021-09-13,,navicha,6
+1416,2021-09-14,,navicha,0
+1417,2021-09-09,Completa,,1
+1443,2021-12-07,Completa,,3
+1444,2021-12-07,,acequia vieja,7
+1450,2021-10-13,Completa,,1
+1456,2021-10-07,Completa,,4
+1478,2021-09-30,,la costa,1
+1490,2021-09-24,,la costa,2
+1512,2021-09-09,Completa,,2
+1526,2022-06-23,,caloj,6
+1529,2022-06-23,,suncho pozo,2
+1532,2022-06-22,Completa,,1
+1557,2022-08-06,Completa,,6
+1562,2022-08-08,,san antonio de copo,6
+1573,2022-07-27,,rincÃ³n de esperanza,4
+1619,2022-07-25,Completa,,1
+1624,2022-07-27,Completa,,3
+1625,2023-01-19,Completa,,3
+1643,2023-01-17,Imposibilitada,,0
+1647,2022-06-09,,san josÃ© oeste,11
+1649,2022-06-09,,san josÃ© oeste,2
+1650,2022-06-09,,san josÃ© oeste,4
+1652,2022-09-06,Completa,,5
+1653,2022-09-07,Completa,,3
+1656,2022-09-06,,el fisco,4
+1668,2022-09-07,,,2
+1681,2022-06-10,,santa rosa,2
+1686,2022-10-21,,san josÃ© oeste,3
+1693,2022-10-21,Completa,,1
+1697,2022-10-18,Completa,,3
+1702,2022-10-13,Imposibilitada,,0
+1703,2022-09-05,,ashpa sumaj / paso grande,5
+1711,2022-09-05,Imposibilitada,,0
+1715,2022-09-05,Completa,,1
+1723,2022-09-02,Completa,,7
+1736,2022-08-06,Completa,,2
+1739,2022-07-27,,ashpa sumaj / paso grande,1
+1742,2022-06-09,,,7
+1745,2022-06-10,,santa rosa,6
+1758,2022-12-29,Completa,,5
+1769,2022-12-22,Completa,,5
+1773,2022-12-21,,blanca pozo,1
+1793,2023-01-19,Completa,,2
+1800,2023-01-17,,gramilla,0
+1805,2023-02-14,Completa,,4
+1816,2023-03-23,Completa,,5
+1820,2023-02-27,Completa,,3
+1823,2023-02-27,,blanca pozo,1
+1833,2022-07-25,,taco sombreana,3
+1834,2022-07-25,,taco sombreana,3
+1837,2023-01-17,,gramilla,3
+1847,2022-10-18,Completa,,4
+1854,2022-10-13,,ashpa sumaj / paso grande,3
+1869,2022-10-17,,blanca pozo,6

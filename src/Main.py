@@ -5,13 +5,14 @@ from Data import Data
 from Extractor import Extractor
 from FiltroEstado import FiltroEstado
 from FormateadorFecha import FormateadorFecha
+from FormateadorMayusculas import FormateadorMayusculas
 from Generador import Generador
 from Pipeline import Pipeline
 from Selector import Selector
 from Validador import Validador
 
 ####### URL a la carpeta CSV ######
-csvPath = '../csv/'
+csvPath = 'C:'
 
 # Creando un componente extractor
 extractor = Extractor(
@@ -28,7 +29,7 @@ validador = Validador(Data.get_columns_for_dataframe())
 formateador_fecha = FormateadorFecha("fecha_inicial")
 
 # Creando un componente formateador mayusculas paraje
-formateador_mayusculas = FormateadorFecha("paraje")
+formateador_mayusculas = FormateadorMayusculas("paraje")
 
 # Creando un componente selector
 selector = Selector()
