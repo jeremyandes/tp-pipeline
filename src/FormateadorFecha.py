@@ -5,32 +5,23 @@ from ContextoGenerico import ContextoGenerico
 
 
 class FormateadorFecha(ComponentePipeline):
-    def __init__(self, columna: str):
+    def __init__(self, columna: str, formato: str = '%d/%m/%Y'):
         self.columna = columna
+        self.formato = formato
 
-    def formatear(self, data):
-        valor = getattr(data, f"get_{self.columna}")()
-        if valor is not None:
-            return valor
-        return None
-
-    def formatear_fecha(self, data):
-        valor = self.formatear(data)
-        if valor is not None and isinstance(valor, datetime.datetime):
-            return valor.strftime("DD/MM/AAAA")
-        return None
+    def transformar_fecha(self, fecha):
+        return datetime.datetime.strptime(fecha, '%Y-%m-%d').strftime(self.formato)
 
     def ejecutar(self, context: ContextoGenerico):
-        # TODO: Verificar funcionamiento
-        print("Ejecutando transformador")
+        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando formateador de fecha")
+
         lista_data = context.get_data()
         for data in lista_data:
-            # TODO: Transformar!
-            pass
+            fecha = getattr(data, self.columna)
+            setattr(data, self.columna, self.transformar_fecha(fecha))
 
-        # TODO: asignar la data transformada al nuevo context y devolver el nuevo context
-        # new_context = Context()
-        # new_context.set_data(new_data)
+        context.set_data(lista_data)
 
-        print("Fin ejecucion transformador")
+        print(f"[{datetime.datetime.now()}] 🗨️  Fechas transformadas correctamente al formato {self.formato}")
+        print(f"[{datetime.datetime.now()}] ✅ Fin ejecucion formateador de fecha")
         return context

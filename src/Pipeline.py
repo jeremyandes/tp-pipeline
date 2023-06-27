@@ -1,9 +1,11 @@
+import datetime
 from ComponentePipeline import ComponentePipeline
 from ContextoGenerico import ContextoGenerico
 
 
 class Pipeline(ComponentePipeline):
     components = []
+    nombre = ""
 
     def __init__(self, nombre):
         self.components = []
@@ -13,7 +15,7 @@ class Pipeline(ComponentePipeline):
         self.components.append(component)
 
     def ejecutar(self, context: ContextoGenerico):
-        print(f"Ejecutando pipeline {self.nombre}")
+        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando pipeline {self.nombre}")
         contexto_principal = context
         contexto_alternativo = None
         for componente in self.components:
@@ -30,6 +32,6 @@ class Pipeline(ComponentePipeline):
                 else:
                     contexto_principal, contexto_alternativo = result
 
-        print(f"Fin pipeline {self.nombre}")
+        print(f"[{datetime.datetime.now()}] ✅ Fin pipeline {self.nombre}")
 
         return None

@@ -6,27 +6,27 @@ from ContextoGenerico import ContextoGenerico
 
 
 class Validador(ComponentePipeline):
+    columnas_validar: list
+
     def __init__(self, columnas_validar):
         self.columnas_validar = columnas_validar
 
     def validar(self, data):
         for columna in self.columnas_validar:
-            print(columna)
 
             if not hasattr(data, columna):
                 raise ValueError(
-                    f"La columna {columna} no existe en el objeto Data.")
+                    f"[{datetime.datetime.now()}] ⛔ La columna {columna} no existe. | Data ID: {data.id}")
+
             valor = getattr(data, columna)
-            print(valor)
             if not self.validar_tipo(columna, valor):
                 raise ValueError(
-                    f"El valor ({valor}) de la columna {columna} no cumple con el tipo de dato esperado.")
+                    f"[{datetime.datetime.now()}] ⛔ El valor ({valor}) de la columna {columna} no cumple con el tipo de dato esperado. | Data ID: {data.id}")
 
     def validar_tipo(self, columna, valor):
         # Si el tipo es válido, retorna True. De lo contrario, retorna False.
         if columna == "id" or columna == "cantidad_personas":
-            valor, es_parseable = self.tryParseInt(valor)
-            return es_parseable and valor > 0
+            return isinstance(valor, str) and valor.isdigit()
         elif columna == "fecha_inicial":
             return self.validar_fecha(valor)
         elif columna == "estado_encuesta":
@@ -37,17 +37,19 @@ class Validador(ComponentePipeline):
 
     def validar_fecha(self, fecha):
         try:
-            datetime.datetime.strptime(fecha, '%d/%m/%Y')
+            datetime.datetime.fromisoformat(fecha)
             return True
         except ValueError:
             return False
 
     def ejecutar(self, context: ContextoGenerico):
-        print("Ejecutando validador")
+        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando validador")
         lista_data = context.get_data()
-        # for data in lista_data:
-        #     self.validar(data)
-        print("Fin ejecucion validador")
+        for data in lista_data:
+            self.validar(data)
+
+        print(f"[{datetime.datetime.now()}] 🗨️  Todos los datos son válidos.")
+        print(f"[{datetime.datetime.now()}] ✅ Fin ejecucion validador")
         return context
 
     @staticmethod
