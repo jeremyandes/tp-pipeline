@@ -22,15 +22,15 @@ class FormateadorMayusculas(ComponentePipeline):
         return None
 
     def ejecutar(self, context: ContextoGenerico):
-        # TODO: Verificar funcionamiento
-        print("Ejecutando transformador")
+        print(
+            f"[{datetime.datetime.now()}] ⌛ Ejecutando formateador de mayúsculas por la columna {self.columna}")
+
         lista_data = context.get_data()
         for data in lista_data:
-            # TODO: Transformar!
-            pass
+            setattr(data, self.columna, self.mayusculas(data))
 
-        # TODO: asignar la data transformada al nuevo context y devolver el nuevo context
-        # new_context = Context()
-        # new_context.set_data(new_data)
-        print("Fin ejecucion transformador")
+        context.set_data(lista_data)
+
+        print(
+            f"[{datetime.datetime.now()}] ⌛ Fin ejecucion formateador de mayúsculas por la columna {self.columna}")
         return context

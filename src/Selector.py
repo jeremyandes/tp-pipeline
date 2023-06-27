@@ -1,3 +1,4 @@
+import datetime
 from Context import Context
 from ContextoGenerico import ContextoGenerico
 from Data import Data
@@ -17,7 +18,7 @@ class Selector:
         return (resultados_campos_vacios, resultados_campos_no_vacios)
 
     def ejecutar(self, context: ContextoGenerico):
-        print("Ejecutando selector")
+        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando selector")
 
         campos_vacios, campos_no_vacios = self.filtrar_campos_vacios(
             context.get_data())
@@ -28,5 +29,5 @@ class Selector:
         contexto_campos_no_vacios = Context()
         contexto_campos_no_vacios.set_data(campos_no_vacios)
 
-        print("Fin ejecucion selector")
+        print(f"[{datetime.datetime.now()}] ✅ Fin ejecucion selector")
         return (contexto_campos_no_vacios, contexto_campos_vacios)
