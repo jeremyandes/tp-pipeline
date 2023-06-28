@@ -5,22 +5,39 @@ from ContextEncuentasPorParaje import ContextEncuestasPorParaje
 from ContextoGenerico import ContextoGenerico
 from Data import Data
 from DataEncuentasPorParaje import DataEncuentasPorParaje
+import pandas as pd
 
 
 class AgregadorEncuestasPorParaje(ComponentePipeline):
-    def agruparEncuestasPorParaje(self, lista_data: List(Data)) -> List(DataEncuentasPorParaje):
+
+    def reading_list(self, df:pd.DataFrame) -> list:
+        return list(map(lambda key, value:DataEncuentasPorParaje(key, value), df.keys(), df.values.tolist()))
+
+    def agruparEncuestasPorParaje(self, df: pd.DataFrame) -> List(DataEncuentasPorParaje):
         resultado = []
-        # TODO: Agrupar
-        resultado.append(DataEncuentasPorParaje("paraje1", 4))
-        resultado.append(DataEncuentasPorParaje("paraje2", 10))
+        count = df.groupby('paraje')['id'].count()
+        resultado = self.reading_list(count)
         return resultado
 
     def ejecutar(self, context: ContextoGenerico):
         print(
             f"[{datetime.datetime.now()}] ⌛ Ejecutando agregador encuestas por paraje")
-        new_lista_data = self.agruparEncuestasPorParaje(context.get_data())
-        new_context = ContextEncuestasPorParaje()
-        new_context.set_data(new_lista_data)
+
+        if (context.has_data()):
+            df = pd.DataFrame(
+                context.get_data_as_dataframe(),
+                columns=context.get_columns_for_dataframe()
+            )
+            new_lista_data = self.agruparEncuestasPorParaje(df)
+            new_context = ContextEncuestasPorParaje()
+            new_context.set_data(new_lista_data)
+
+        else:
+            print(
+                f"[{datetime.datetime.now()}] 🗨️ El contexto no tiene datos para agrupar")
+
+            new_context = ContextEncuestasPorParaje()
+
         print(
             f"[{datetime.datetime.now()}] ✅ Fin ejecucion agregador encuestas por paraje")
 
