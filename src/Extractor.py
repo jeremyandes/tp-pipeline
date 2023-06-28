@@ -1,5 +1,6 @@
 import csv
 import datetime
+import os
 from ComponentePipeline import ComponentePipeline
 from Context import Context
 from ContextoGenerico import ContextoGenerico
@@ -17,9 +18,18 @@ class Extractor(ComponentePipeline):
 
     def ejecutar(self, context: ContextoGenerico) -> ContextoGenerico:
         print(f"[{datetime.datetime.now()}] ⌛ Ejecutando extractor.. Obteniendo los datos de '{self.initial_dataset}'")
+          # Agregado: Verificar existencia del archivo
+        if not os.path.exists(self.initial_dataset):
+            print(f"[{datetime.datetime.now()}] ⛔ Error en extractor: El archivo '{self.initial_dataset}' no existe.")
+            return Context()
+        
         with open(self.initial_dataset, "r") as archivo_csv:
             fila = csv.reader(archivo_csv)
-            next(fila)
+            header = next(fila)
+            if not header:
+                print(f"[{datetime.datetime.now()}] ⛔ Error en extractor: El archivo '{self.initial_dataset}' no contiene registros.")
+                return Context()
+            
             for columna in fila:
                 id_encuesta = columna[0]
                 fecha_inicial = columna[1]
@@ -45,7 +55,7 @@ class Extractor(ComponentePipeline):
         return context
 
 
-# # Prueba
+#  Prueba
 # extractor = Extractor(
 #     "C:\\Users\\ariel\\OneDrive\\Escritorio\\CAECE\\tp-pipeline\\csv\\initial_dataset.csv")
 # lista_data = extractor.ejecutar()
