@@ -15,7 +15,7 @@ class Pipeline(ComponentePipeline):
         self.components.append(component)
 
     def ejecutar(self, context: ContextoGenerico):
-        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando pipeline {self.nombre}")
+        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando pipeline '{self.nombre}'")
         contexto_principal = context
         contexto_alternativo = None
         for componente in self.components:
