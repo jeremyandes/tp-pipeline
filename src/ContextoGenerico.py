@@ -4,6 +4,9 @@ from Data import Data
 
 
 class ContextoGenerico(ABC):
+    def has_data(self):
+        return self.data is not None and self.data != []
+
     def get_data_as_dataframe(self):
         data_frame = []
         for data in self.data:
