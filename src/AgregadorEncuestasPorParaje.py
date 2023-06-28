@@ -1,4 +1,5 @@
 from ast import List
+import datetime
 from ComponentePipeline import ComponentePipeline
 from ContextEncuentasPorParaje import ContextEncuestasPorParaje
 from ContextoGenerico import ContextoGenerico
@@ -15,9 +16,12 @@ class AgregadorEncuestasPorParaje(ComponentePipeline):
         return resultado
 
     def ejecutar(self, context: ContextoGenerico):
-        print("Ejecutando agregador encuestas por paraje")
+        print(
+            f"[{datetime.datetime.now()}] ⌛ Ejecutando agregador encuestas por paraje")
         new_lista_data = self.agruparEncuestasPorParaje(context.get_data())
         new_context = ContextEncuestasPorParaje()
         new_context.set_data(new_lista_data)
-        print("Fin ejecucion agregador encuestas por paraje")
+        print(
+            f"[{datetime.datetime.now()}] ✅ Fin ejecucion agregador encuestas por paraje")
+
         return new_context

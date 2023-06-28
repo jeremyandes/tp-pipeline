@@ -15,9 +15,11 @@ class AgregadorPersonasPorParaje(ComponentePipeline):
         return resultado
 
     def ejecutar(self, context: ContextoGenerico):
-        print("Ejecutando agregador personas por paraje")
+        print(
+            f"[{datetime.datetime.now()}] ⌛ Ejecutando agregador personas por paraje")
         new_lista_data = self.agruparPersonasPorParaje(context.get_data())
         new_context = ContextPersonasPorParaje()
         new_context.set_data(new_lista_data)
-        print("Fin ejecucion agregador personas por paraje")
+        print(
+            f"[{datetime.datetime.now()}] ✅ Fin ejecucion agregador personas por paraje")
         return new_context

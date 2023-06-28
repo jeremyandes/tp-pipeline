@@ -16,7 +16,7 @@ class Extractor(ComponentePipeline):
         self.data = []
 
     def ejecutar(self, context: ContextoGenerico) -> ContextoGenerico:
-        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando extractor")
+        print(f"[{datetime.datetime.now()}] ⌛ Ejecutando extractor.. Obteniendo los datos de '{self.initial_dataset}'")
         with open(self.initial_dataset, "r") as archivo_csv:
             fila = csv.reader(archivo_csv)
             next(fila)
