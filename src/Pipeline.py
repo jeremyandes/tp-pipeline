@@ -37,7 +37,7 @@ class Pipeline(ComponentePipeline):
 
             print(f"[{datetime.datetime.now()}] ✅ Fin pipeline {self.nombre}")
 
-        except PipelineException as e:
+        except (PipelineException, ValueError) as e:
             print(
                 f"[{datetime.datetime.now()}] ⛔ Pipeline se detuvo a causa de una excepcion controlada: " + str(e))
 

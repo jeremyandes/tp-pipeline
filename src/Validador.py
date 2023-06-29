@@ -16,12 +16,12 @@ class Validador(ComponentePipeline):
 
             if not hasattr(data, columna):
                 raise ValueError(
-                    f"[{datetime.datetime.now()}] ⛔ La columna {columna} no existe. | Data ID: {data.id}")
+                    f"La columna {columna} no existe. | Data ID: {data.id}")
 
             valor = getattr(data, columna)
             if not self.validar_tipo(columna, valor):
                 raise ValueError(
-                    f"[{datetime.datetime.now()}] ⛔ El valor ({valor}) de la columna {columna} no cumple con el tipo de dato esperado. | Data ID: {data.id}")
+                    f"El valor ({valor}) de la columna {columna} no cumple con el tipo de dato esperado. | Data ID: {data.id}")
 
     def validar_tipo(self, columna, valor):
         # Si el tipo es válido, retorna True. De lo contrario, retorna False.
@@ -45,6 +45,7 @@ class Validador(ComponentePipeline):
     def ejecutar(self, context: ContextoGenerico):
         print(f"[{datetime.datetime.now()}] ⌛ Ejecutando validador")
         lista_data = context.get_data()
+        
         for data in lista_data:
             self.validar(data)
 
