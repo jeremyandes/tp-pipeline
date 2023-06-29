@@ -19,7 +19,7 @@ El pipeline debe ser capaz de ejecutar secuencialmente varios procesos configura
 
 # Ejemplo de uso
 
-En la consola bash, ya sea por medio de un IDE o de la terminal, ejecutar el siguiente comando:
+En la consola bash (Git Bash / zsh), ya sea por medio de un IDE o de la terminal, ejecutar el siguiente comando:
 
 ```
 python3 src/Main.py
