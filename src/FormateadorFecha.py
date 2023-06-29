@@ -5,7 +5,10 @@ from ContextoGenerico import ContextoGenerico
 
 
 class FormateadorFecha(ComponentePipeline):
-    def __init__(self, columna: str, formato: str = '%d/%m/%Y'):
+    columna: str
+    formato: str
+
+    def __init__(self, columna: str, formato: str = '%d-%m-%Y'):
         self.columna = columna
         self.formato = formato
 

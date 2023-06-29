@@ -1,11 +1,11 @@
 import datetime
+import EstadoEncuesta
 
 
 class Data:
-
     id: int
     fecha_inicial: datetime
-    estado_encuesta: str
+    estado_encuesta: EstadoEncuesta
     paraje: str
     cantidad_personas: int
 
@@ -30,7 +30,7 @@ class Data:
     def get_fecha_inicial(self) -> datetime:
         return self.fecha_inicial
 
-    def get_estado_encuesta(self) -> str:
+    def get_estado_encuesta(self) -> EstadoEncuesta:
         return self.estado_encuesta
 
     def get_paraje(self) -> str:
@@ -45,7 +45,7 @@ class Data:
     def set_fecha_inicial(self, fecha_inicial: datetime):
         self.fecha_inicial = fecha_inicial
 
-    def set_estado_encuesta(self, estado_encuesta: str):
+    def set_estado_encuesta(self, estado_encuesta: EstadoEncuesta):
         self.estado_encuesta = estado_encuesta
 
     def set_paraje(self, paraje: str):
@@ -54,11 +54,3 @@ class Data:
     def set_cantidad_personas(self, cantidad_personas: int):
         self.cantidad_personas = cantidad_personas
 
-    def print_data(self):
-        print("--------------------")
-        print("id: ", self.id)
-        print("fecha_inicial: ", self.fecha_inicial)
-        print("estado_encuesta: ", self.estado_encuesta)
-        print("paraje: ", self.paraje)
-        print("cantidad_personas: ", self.cantidad_personas)
-        print("--------------------")

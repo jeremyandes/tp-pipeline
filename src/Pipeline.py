@@ -1,12 +1,13 @@
 import datetime
+from time import sleep
 from ComponentePipeline import ComponentePipeline
 from ContextoGenerico import ContextoGenerico
 from Exceptions.PipelineException import PipelineException
 
 
 class Pipeline(ComponentePipeline):
-    components = []
-    nombre = ""
+    components: list[ComponentePipeline] = []
+    nombre: str = ""
 
     def __init__(self, nombre):
         self.components = []
@@ -22,6 +23,7 @@ class Pipeline(ComponentePipeline):
 
         try:
             for componente in self.components:
+                sleep(2)
                 if not isinstance(componente, tuple):
                     result = componente.ejecutar(contexto_principal)
                 else:

@@ -5,6 +5,7 @@ from ContextoGenerico import ContextoGenerico
 
 
 class FiltroEstado(ComponentePipeline):
+    estado: str
 
     def __init__(self, estado: str):
         self.estado = estado

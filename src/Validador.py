@@ -1,6 +1,7 @@
 # Juan Andres Cherviere version 2
 import datetime
 
+from EstadoEncuesta import EstadoEncuesta
 from ComponentePipeline import ComponentePipeline
 from ContextoGenerico import ContextoGenerico
 
@@ -30,7 +31,7 @@ class Validador(ComponentePipeline):
         elif columna == "fecha_inicial":
             return self.validar_fecha(valor)
         elif columna == "estado_encuesta":
-            return valor in ['', 'Completa', 'Imposibilitada', 'De Prueba', 'En proceso']
+            return valor in [estado.value for estado in EstadoEncuesta]
         else:
             # Si la columna no está definida en las condiciones anteriores, se considera válida
             return True

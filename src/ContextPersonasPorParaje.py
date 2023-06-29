@@ -5,7 +5,7 @@ from DataPersonasPorParaje import DataPersonasPorParaje
 
 
 class ContextPersonasPorParaje(ContextoGenerico):
-    data = []
+    data: list[DataPersonasPorParaje] = []
 
     def __init__(self):
         # self.create_example_list()

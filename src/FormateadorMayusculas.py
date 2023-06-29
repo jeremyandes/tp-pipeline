@@ -6,6 +6,8 @@ from ContextoGenerico import ContextoGenerico
 
 
 class FormateadorMayusculas(ComponentePipeline):
+    columna: str
+
     def __init__(self, columna: str):
         self.columna = columna
 
