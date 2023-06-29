@@ -26,10 +26,14 @@ class Extractor(ComponentePipeline):
         
         with open(self.initial_dataset, "r") as archivo_csv:
             fila = csv.reader(archivo_csv)
-            header = next(fila)
-            if not header:
-                print(f"[{datetime.datetime.now()}] ⛔ Error en extractor: El archivo '{self.initial_dataset}' no contiene registros.")
-                return Context()
+
+            try:
+                header = next(fila)
+            except Exception:
+                raise PipelineException(f"Error en extractor: El archivo '{self.initial_dataset}' no contiene registros o tiene un formato inválido.")
+            
+            if "" in header:
+                raise PipelineException(f"Error en extractor: El archivo '{self.initial_dataset}' tiene headers inválidos.")
             
             for columna in fila:
                 current_position = fila.line_num
@@ -42,11 +46,11 @@ class Extractor(ComponentePipeline):
                     objeto_data = Data(id_encuesta, fecha_inicial,
                                     estado_encuesta, paraje, cantidad_personas)
                 except Exception:
-                    self.raise_excepcion_controlada(current_position)
+                    raise PipelineException(f"Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
 
                 # Cortar operacion si hay datos erróneos
                 if (objeto_data.id == ""):
-                    self.raise_excepcion_controlada(current_position)
+                    raise PipelineException(f"Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
 
 
                 self.data.append(objeto_data)
@@ -55,8 +59,3 @@ class Extractor(ComponentePipeline):
         print(f"[{datetime.datetime.now()}] 🗨️  Cantidad de datos extraidos del archivo CSV inicial: {len(self.data)}")
         print(f"[{datetime.datetime.now()}] ✅ Fin ejecucion extractor")
         return context
-
-    def raise_excepcion_controlada(self, current_position):
-        print(
-            f"[{datetime.datetime.now()}] ⛔ Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
-        raise PipelineException(f"Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
