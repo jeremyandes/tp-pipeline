@@ -13,7 +13,7 @@ class FiltroEstado(ComponentePipeline):
     def filtrar_encuestas_por_estado(self, lista_data):
         resultado = []
         for fila in lista_data:
-            if fila.estado_encuesta == self.estado:
+            if fila.estado_encuesta.lower() == self.estado.lower():
                 resultado.append(fila)
         return resultado
 
