@@ -10,7 +10,7 @@ from Exceptions.PipelineException import PipelineException
 
 class Extractor(ComponentePipeline):
     initial_dataset: str
-    data: list
+    data: list[Data]
     current_position: int
 
     def __init__(self, initial_dataset: str):
@@ -60,10 +60,3 @@ class Extractor(ComponentePipeline):
         print(
             f"[{datetime.datetime.now()}] ⛔ Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
         raise PipelineException(f"Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
-#  Prueba
-# extractor = Extractor(
-#     "C:\\Users\\ariel\\OneDrive\\Escritorio\\CAECE\\tp-pipeline\\csv\\initial_dataset.csv")
-# lista_data = extractor.ejecutar()
-# for objeto in lista_data:
-#     print(objeto.id, objeto.fecha_inicial, objeto.estado_encuesta,
-#           objeto.paraje, objeto.cantidad_personas)

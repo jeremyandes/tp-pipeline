@@ -3,7 +3,7 @@ from Data import Data
 
 
 class Context(ContextoGenerico):
-    data = []
+    data: list[Data] = []
 
     def get_data(self):
         return self.data

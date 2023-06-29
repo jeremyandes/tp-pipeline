@@ -5,10 +5,10 @@ from DataEncuentasPorParaje import DataEncuentasPorParaje
 
 
 class ContextEncuestasPorParaje(ContextoGenerico):
-    data = []
+    data: list[DataEncuentasPorParaje] = []
 
     def __init__(self):
-        # self.create_example_list()
+        # El constructor no es necesario, llamamos a sus métodos luego de inicializarse.
         pass
 
     def get_data(self):

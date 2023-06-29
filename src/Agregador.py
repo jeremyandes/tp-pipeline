@@ -1,7 +1,6 @@
 # Juan Andres Cherviere version 3
 from Context import Context
 from Data import Data
-import pandas as pd
 
 class Agregador:
     context: Context
@@ -51,37 +50,35 @@ class Agregador:
         return resumen_context
 
 
-'''Ejemplo:
+# Ejemplo:
 
-from Context import Context
-from Data import Data
-from Agregador import Agregador
+# from Context import Context
+# from Data import Data
+# from Agregador import Agregador
 
-# Crear un contexto con datos de ejemplo
-context = Context()
-context.create_example_list()
+# # Crear un contexto con datos de ejemplo
+# context = Context()
+# context.create_example_list()
 
-# Crear una instancia de Agregador
-agregador = Agregador(context)
+# # Crear una instancia de Agregador
+# agregador = Agregador(context)
 
-# Realizar el conteo de encuestas por paraje
-resumen_contar = agregador.contar()
-print("Resumen contar:")
-for data in resumen_contar.get_data():
-    data.print_data()
+# # Realizar el conteo de encuestas por paraje
+# resumen_contar = agregador.contar()
+# print("Resumen contar:")
+# for data in resumen_contar.get_data():
+#     data.print_data()
 
- En data habria que modificar
+#  En data habria que modificar
 
- def print_data_agregada_cant_encuestas(self):  #POR EJEMPLO
-    print("--------------------")
-    print("Paraje:", self.paraje)
-    print("Cantidad de encuestas:", self.cantidad_personas)
-    print("--------------------")   
+#  def print_data_agregada_cant_encuestas(self):  #POR EJEMPLO
+#     print("--------------------")
+#     print("Paraje:", self.paraje)
+#     print("Cantidad de encuestas:", self.cantidad_personas)
+#     print("--------------------")   
 
-# Realizar la suma de cantidad de personas por paraje
-resumen_sumar = agregador.sumar()
-print("Resumen sumar:")
-for data in resumen_sumar.get_data():
-    data.print_data()
-
-'''
+# # Realizar la suma de cantidad de personas por paraje
+# resumen_sumar = agregador.sumar()
+# print("Resumen sumar:")
+# for data in resumen_sumar.get_data():
+#     data.print_data()

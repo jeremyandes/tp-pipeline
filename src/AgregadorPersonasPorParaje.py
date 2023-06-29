@@ -3,7 +3,6 @@ import datetime
 from ComponentePipeline import ComponentePipeline
 from ContextPersonasPorParaje import ContextPersonasPorParaje
 from ContextoGenerico import ContextoGenerico
-from Data import Data
 from DataPersonasPorParaje import DataPersonasPorParaje
 import pandas as pd
 
