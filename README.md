@@ -35,6 +35,7 @@ opción numérica, y luego presiontamos la tecla Enter.
 - Modificar datos
 - Detener su ejecución en caso de errores
 - Guardar los resultados en un archivo CSV
+- Imprimir en consola los resultados en tiempo real de cada componente
 
 # Estructura del Pipeline
 
