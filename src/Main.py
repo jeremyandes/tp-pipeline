@@ -14,8 +14,11 @@ from Validador import Validador
 # Creando contexto inicial
 context = Context()
 
+
+archivo = input('¿Cual es el nombre del archivo de entrada?')
+print(archivo)
 # Creando un componente extractor
-extractor = Extractor("initial_dataset.csv")
+extractor = Extractor(archivo)
 
 # Creando un componente generador campo vacio
 generadorCamposVacios = Generador("campos_vacios.csv")

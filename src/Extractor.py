@@ -5,6 +5,7 @@ from ComponentePipeline import ComponentePipeline
 from Context import Context
 from ContextoGenerico import ContextoGenerico
 from Data import Data
+from Exceptions.PipelineException import PipelineException
 
 
 class Extractor(ComponentePipeline):
@@ -31,21 +32,22 @@ class Extractor(ComponentePipeline):
                 return Context()
             
             for columna in fila:
-                id_encuesta = columna[0]
-                fecha_inicial = columna[1]
-                estado_encuesta = columna[2]
-                paraje = columna[3]
-                cantidad_personas = columna[4]
-                objeto_data = Data(id_encuesta, fecha_inicial,
-                                   estado_encuesta, paraje, cantidad_personas)
-
                 current_position = fila.line_num
+                try:
+                    id_encuesta = columna[0]
+                    fecha_inicial = columna[1]
+                    estado_encuesta = columna[2]
+                    paraje = columna[3]
+                    cantidad_personas = columna[4]
+                    objeto_data = Data(id_encuesta, fecha_inicial,
+                                    estado_encuesta, paraje, cantidad_personas)
+                except Exception:
+                    self.raise_excepcion_controlada(current_position)
 
                 # Cortar operacion si hay datos erróneos
                 if (objeto_data.id == ""):
-                    print(
-                        f"[{datetime.datetime.now()}] ⛔ Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
-                    return Context()
+                    self.raise_excepcion_controlada(current_position)
+
 
                 self.data.append(objeto_data)
 
@@ -54,7 +56,10 @@ class Extractor(ComponentePipeline):
         print(f"[{datetime.datetime.now()}] ✅ Fin ejecucion extractor")
         return context
 
-
+    def raise_excepcion_controlada(self, current_position):
+        print(
+            f"[{datetime.datetime.now()}] ⛔ Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
+        raise PipelineException(f"Error en extractor: Se encontró un objeto erróneo, en la fila {current_position}.")
 #  Prueba
 # extractor = Extractor(
 #     "C:\\Users\\ariel\\OneDrive\\Escritorio\\CAECE\\tp-pipeline\\csv\\initial_dataset.csv")
