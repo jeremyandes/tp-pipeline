@@ -33,7 +33,7 @@ class AgregadorEncuestasPorParaje(ComponentePipeline):
 
         else:
             print(
-                f"[{datetime.datetime.now()}] 🗨️ El contexto no tiene datos para agrupar")
+                f"[{datetime.datetime.now()}] 🗨️  El contexto no tiene datos para agrupar")
 
             new_context = ContextEncuestasPorParaje()
 
