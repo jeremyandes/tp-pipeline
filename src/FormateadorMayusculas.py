@@ -1,8 +1,8 @@
 
 import datetime
 from ComponentePipeline import ComponentePipeline
-from Context import Context
 from ContextoGenerico import ContextoGenerico
+from Exceptions.PipelineException import PipelineException
 
 
 class FormateadorMayusculas(ComponentePipeline):
@@ -13,6 +13,8 @@ class FormateadorMayusculas(ComponentePipeline):
 
     def formatear(self, data):
         valor = getattr(data, f"get_{self.columna}")()
+        if not isinstance(valor, str) or valor.isdigit():
+            raise PipelineException("Error en FormateadorMayusculas: No se puede formatear un tipo de dato que no es string.")
         if valor is not None:
             return valor
         return None
@@ -34,5 +36,5 @@ class FormateadorMayusculas(ComponentePipeline):
         context.set_data(lista_data)
 
         print(
-            f"[{datetime.datetime.now()}] ⌛ Fin ejecucion formateador de mayúsculas por la columna {self.columna}")
+            f"[{datetime.datetime.now()}] ✅ Fin ejecucion formateador de mayúsculas por la columna {self.columna}")
         return context
