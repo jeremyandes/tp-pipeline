@@ -55,7 +55,7 @@ generadorCamposVacios = Generador("campos_vacios.csv")
 validador = Validador(Data.get_columns_for_dataframe())
 
 # Creando un componente formateador fecha
-formateador_fecha = FormateadorFecha("fecha_inicial", '%d-%m-%Y')
+formateador_fecha = FormateadorFecha("fecha_inicial", '%d/%m/%Y')
 
 # Creando un componente formateador mayusculas paraje
 formateador_mayusculas = FormateadorMayusculas("paraje")
@@ -64,7 +64,7 @@ formateador_mayusculas = FormateadorMayusculas("paraje")
 selector = Selector()
 
 # Creando un componente filtro estado por completas
-filtro_estado_completas = FiltroEstado(EstadoEncuesta.COMPLETA)
+filtro_estado_completas = FiltroEstado(EstadoEncuesta.COMPLETA.value)
 
 # Creando un pipeline para agregador encuestas por paraje
 agregador_encuestas_por_paraje = AgregadorEncuestasPorParaje()

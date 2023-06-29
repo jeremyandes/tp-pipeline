@@ -26,7 +26,7 @@ class Generador(ComponentePipeline):
 
         else:
             print(
-                f"[{datetime.datetime.now()}] 🗨️ El contexto no tiene data para generar")
+                f"[{datetime.datetime.now()}] 🗨️  El contexto no tiene data para generar")
 
         print(
             f"[{datetime.datetime.now()}] ✅ Fin ejecucion generador de la url '{self.url_destino}'")
