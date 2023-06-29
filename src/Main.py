@@ -35,9 +35,6 @@ selector = Selector()
 # Creando un componente filtro estado por completas
 filtro_estado_completas = FiltroEstado("Completa")
 
-# Creando un componente pipeline
-pipeline = Pipeline("Pipeline Principal")
-
 # Creando un pipeline para agregador encuestas por paraje
 agregador_encuestas_por_paraje = AgregadorEncuestasPorParaje()
 generadorEncuestasPorParaje = Generador("encuestas_por_paraje.csv")
@@ -54,7 +51,11 @@ pipeline_personas_por_paraje = Pipeline("Pipeline personas por paraje")
 pipeline_personas_por_paraje.add_component(agregador_personas_por_paraje)
 pipeline_personas_por_paraje.add_component(generadorPersonasPorParaje)
 
-# Agregando el extractor y el generador al pipeline
+# Creando el pipeline PRINCIPAL
+pipeline = Pipeline("Pipeline Principal")
+
+
+##################  Agregando componentes al pipeline ##################
 pipeline.add_component(extractor)
 pipeline.add_component(validador)
 pipeline.add_component(formateador_fecha)
